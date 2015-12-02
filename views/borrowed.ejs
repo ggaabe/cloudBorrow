@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cse391</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="/styles/main.css">
+    
+  </head>
+
+  <body>
+
+  	<% include nav.ejs %>
+
+    <% for(var i=0; i<library.length; i++) { %>
+          <% if (library[i].status == "unavailable") { %>
+          <div class="itemBox">
+                <h2 class="itemName"><%= library[i].name %></h2>
+                <hr>
+
+
+            <form method="post" action="/return">
+            
+             <input type="hidden" name="item" value=<%= library[i].name %>></input>
+
+             <button class="borrowButton">Return</button>
+            </form>
+      
+          </div>
+           <% } %>
+    <% } %>
+
+
+
+
+
+
+
+
+  </body>

@@ -1,0 +1,25 @@
+    <nav class="navbar navbar-static-top">
+
+    <ul class="nav">
+        <li><a style="font-size:17px;" href="/">Borrow</a></li>
+  
+
+    <% if (User != null) { %>
+    <div class="navRight nav">
+       <b>Welcome <%= User.user %> </b>
+       <li><a href="/">|Home|</a></li>
+       <li><a href="/library">|Library|</a></li>
+       <li><a href="/borrowed">|Borrowed|</a></li>
+              <li><a href="/logout">|Logout|</a></li>
+       </div>
+    <% } else { %>
+   <div class="navRight nav">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        </div>
+    <% } %>
+
+      </ul>
+
+      <div class="pull-right menu" id="hamburger"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
+    </nav>

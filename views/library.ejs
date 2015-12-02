@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cse391</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="/styles/main.css">
+    
+  </head>
+
+  <body>
+
+  	<% include nav.ejs %>
+
+	<center><button id="addItem" class="buttonAdd" onclick="showHideDiv();">Add Item</button></center>
+  	<form action="#" method="post" action="/">
+  	<div id="register" style="display:none;">
+			<label for="un">Item Name:</label>
+			<input id="un" type="text" name="itemName">
+      <label for="ua">Available For:</label>
+        <input id="ua" type="text" name="days">
+			<label for"up">Image:</label>
+			<input type="file" name="imgFile">
+			<button class="formButton" type="submit">Add Item</button>
+		</div>
+  	</form>
+  	<hr>
+
+    <% for(var i=0; i<library.length; i++) { %>
+        
+          <% if (library[i].status == "available") { %>
+          <div class="itemBox">
+                <h2 class="itemName"><%= library[i].name %></h2>
+                <hr>
+                <button class="borrowButton">Remove</button>
+          </div>
+              
+           <% } else { %>
+           <div class="itemBox" style="background-color: rgb(191, 114, 118);">
+                <h2 class="itemName"><%= library[i].name %></h2>
+                <hr>
+                <button class="borrowButton">Remove</button>
+          </div>
+           <% } %>
+    <% } %>
+
+
+
+  	<script type="text/javascript">
+		function showHideDiv() {
+		    var e = document.getElementById("register");
+		    var e2 = document.getElementById("addItem");
+		    if(e.style.display == null || e.style.display == "none") {
+		        e.style.display = "block";
+		        e2.style.display = "none";
+		    } else {
+		        e.style.display = "none";
+		        e2.style.display = "block";
+		    }
+		}
+	</script>
+
+
+
+
+  </body>
